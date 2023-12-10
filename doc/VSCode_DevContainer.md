@@ -32,3 +32,31 @@ When VSCode encounters a `.devcontainer` directory, it will prompt you to open t
 * VSCode Extension : Dev Containers - Microsoft
 * VSCode Extension : C++ Extension Pack - Microsoft
 * VSCode Extension : CMake - twxs (optional - CMake syntax highliting)
+
+
+## Commands
+cmake -DCMAKE_BUILD_TYPE=Release \
+        -DTOOLCHAIN_PREFIX="/opt/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin" \
+        -DCMAKE_TOOLCHAIN_FILE="../cmake/toolchain-arm-none-eabi.cmake" \
+		-DCMAKE_C_COMPILER="/opt/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gcc"  \
+		-DCMAKE_ASM_COMPILER="/opt/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gcc"  \ 
+		-DCMAKE_CXX_COMPILER="/opt/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-g++" \
+        -DAPPLICATION="LoRaMac" \
+        -DSUB_PROJECT="periodic-uplink-lpp" \
+        -DCLASSB_ENABLED="ON" \
+        -DACTIVE_REGION="LORAMAC_REGION_EU868" \
+        -DREGION_EU868="ON" \
+        -DREGION_US915="OFF" \
+        -DREGION_CN779="OFF" \
+        -DREGION_EU433="OFF" \
+        -DREGION_AU915="OFF" \
+        -DREGION_AS923="OFF" \
+        -DREGION_CN470="OFF" \
+        -DREGION_KR920="OFF" \
+        -DREGION_IN865="OFF" \
+        -DREGION_RU864="OFF" \
+        -DBOARD="NucleoL476" \
+        -DMBED_RADIO_SHIELD="LR1110MB1XXS" \
+        -DSECURE_ELEMENT="LR1110_SE" \
+        -DSECURE_ELEMENT_PRE_PROVISIONED="ON" \
+        -DUSE_RADIO_DEBUG="ON" ..
